@@ -48,7 +48,7 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 ## Instance Launch
 
-
+<img width="726" height="358" alt="Image" src="https://github.com/user-attachments/assets/ccc613bc-5bcd-4830-b8ca-56cdc88c381b" />
 
 ## Environment Preparation
 
