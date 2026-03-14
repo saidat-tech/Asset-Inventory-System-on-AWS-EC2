@@ -28,9 +28,9 @@ The system follows a Monolithic Application Architecture, where the backend serv
 
 The Express.js backend acts as both the API provider and the static file server for the React frontend, allowing the entire system to run as a unified appliance on a single EC2 instance.
 
-# Provisioning on CLoud to Implementation for both Backend and Frontend
+# Provisioning on CLoud to Implement both Backend and Frontend
 
-## 1. Cloud Infrastructure: Instance Launch
+## 1. Cloud Infrastructure: 
 
 The application is deployed on AWS EC2, where the server environment is provisioned and configured for application hosting.
 
@@ -45,6 +45,11 @@ The application is deployed on AWS EC2, where the server environment is provisio
 SSH (Port 22) restricted to trusted IP addresses
 
 Custom application port exposed for web access - Port 3000 (Custom TCP)
+
+## Instance Launch
+
+
+
 
 ## Environment Preparation
 
