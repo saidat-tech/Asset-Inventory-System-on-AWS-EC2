@@ -57,9 +57,13 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 **Server named and Machine image select**
 
-<img width="749" height="617" alt="Image" src="https://github.com/user-attachments/assets/f6b4228d-e36a-4616-9b09-e06d2b8e03c6" />
+<img width="749" height="617" alt="Image" src="https://github.com/user-attachments/assets/f6b4228d-e36a-4616-9b09-e06d2b8e03c6" /> 
 
-<img width="689" height="730" alt="Image" src="https://github.com/user-attachments/assets/df56c1fe-0eea-4526-acba-97e9a4cc1a4d" />
+******
+
+<img width="689" height="730" alt="Image" src="https://github.com/user-attachments/assets/df56c1fe-0eea-4526-acba-97e9a4cc1a4d" /> 
+
+*******
 
 <img width="603" height="597" alt="Image" src="https://github.com/user-attachments/assets/7d70082a-58a3-45f2-a330-d06066fe92ad" />
 
