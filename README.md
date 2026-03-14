@@ -30,7 +30,7 @@ The Express.js backend acts as both the API provider and the static file server 
 
 # Provisioning on CLoud to Implementation for both Backend and Frontend
 
-## Cloud Infrastructure: Instance Launch
+## 1. Cloud Infrastructure: Instance Launch
 
 The application is deployed on AWS EC2, where the server environment is provisioned and configured for application hosting.
 
@@ -38,7 +38,7 @@ The application is deployed on AWS EC2, where the server environment is provisio
 
 - **Instance Type:** t3.micro (Free Tier)
 
-- **Operating System:*** Amazon Linux 2023 / Ubuntu 22.04 LTS
+- **Operating System:** Amazon Linux 2023 / Ubuntu 22.04 LTS
 
 - **Security Configuration:**
 
@@ -46,6 +46,10 @@ SSH (Port 22) restricted to trusted IP addresses
 
 Custom application port exposed for web access - Port 3000 (Custom TCP)
 
+## Environment Preparation
+
+
+Connect via SSH and install the Node.js runtime from below website, ensure to select linux as shown below https://nodejs.org/en/download
 The environment is prepared by installing the Node.js runtime, enabling the system to execute the backend application and serve frontend assets.
 
 
