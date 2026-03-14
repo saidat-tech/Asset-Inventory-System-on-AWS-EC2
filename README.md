@@ -48,7 +48,7 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 ## Instance Launch
 
-
+![image](./https://github.com/saidat-tech/Asset-Inventory-System-on-AWS-EC2/blob/main/Screenshot%202026-03-08%20161046.png)
 
 
 ## Environment Preparation
