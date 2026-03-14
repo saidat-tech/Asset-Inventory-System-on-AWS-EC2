@@ -55,21 +55,21 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 <img width="930" height="756" alt="Image" src="https://github.com/user-attachments/assets/1522e08b-fd45-4bd5-bfa3-a981b5c2bf8b" />
 
-**Server named and Machine image select**
+** Name the Server and Machine image **
 
 <img width="749" height="617" alt="Image" src="https://github.com/user-attachments/assets/f6b4228d-e36a-4616-9b09-e06d2b8e03c6" /> 
 
 ******
 <img width="782" height="378" alt="Image" src="https://github.com/user-attachments/assets/6e433829-0688-4efa-8db9-1fcf683b2151" /> 
 
-***8
+*****
 <img width="603" height="597" alt="Image" src="https://github.com/user-attachments/assets/7d70082a-58a3-45f2-a330-d06066fe92ad" />
 
 *******
 
 <img width="689" height="528" alt="Image" src="https://github.com/user-attachments/assets/31adaa70-46ea-48e9-89d2-d3325f85f6a8" />
 ***********
-
+Scroll down and click on ***"Launch istance"*** and then ***"View all instance".***
 
 ## Environment Preparation
 
