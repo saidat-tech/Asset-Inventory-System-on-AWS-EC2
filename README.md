@@ -12,17 +12,17 @@ The system follows a Monolithic Application Architecture, where the backend serv
 
 ## Core Components
 
-- **Runtime:** Node.js (V8 Engine)
+- **Runtime:** Node.js (V8)
 
 - **Backend:** Express.js REST API
 
 - **Frontend:** React 18 Single Page Application
 
-- **Styling:** Custom CSS (DevOps Dark Mode theme)
+- **Styling:** Custom CSS3 (Obsidian/DevOps Dark Mode)
 
-- **Process Management:** PM2 for application daemonization and resilience
+- **Process Management:** PM2 (Daemonization & Resilience)
 
-- **Cloud Infrastructure:** AWS EC2
+- **Cloud Infrastructure:** AWS EC2 Service
 
 - **Automation:** Cron jobs for scheduled backups
 
