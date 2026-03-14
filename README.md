@@ -48,7 +48,7 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 ## Instance Launch
 
-https://1drv.ms/i/c/1b15776fa50ca2ed/IQB1Qi5iVJoGRY0TLJ5RCYCxAfoAF-oyBmSl3O0ZuyKfERw?e=2dItT6
+
 
 
 ## Environment Preparation
