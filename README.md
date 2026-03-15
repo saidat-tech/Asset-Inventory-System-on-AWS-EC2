@@ -48,33 +48,33 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 ## Steps to Launch an Instance 
 
-**Login to AWS Console. Type EC2 in the search bar. Click on EC2.**
+- **Login to AWS Console. Type EC2 in the search bar. Click on EC2.**
 
 <img width="726" height="358" alt="Image" src="https://github.com/user-attachments/assets/ccc613bc-5bcd-4830-b8ca-56cdc88c381b" />
 
-**Then click on Launch instance.**
+- **Then click on Launch instance.**
 
 
 <img width="930" height="756" alt="Image" src="https://github.com/user-attachments/assets/1522e08b-fd45-4bd5-bfa3-a981b5c2bf8b" />
 
-**Name the Server and select a Machine image**
+- **Name the Server and select a Machine image**
 
 
 <img width="749" height="617" alt="Image" src="https://github.com/user-attachments/assets/f6b4228d-e36a-4616-9b09-e06d2b8e03c6" /> 
 
-**Select your ***Instance type*** and create a new keypair**
+- **Select your ***Instance type*** and create a new keypair**
 
 <img width="782" height="378" alt="Image" src="https://github.com/user-attachments/assets/6e433829-0688-4efa-8db9-1fcf683b2151" /> 
 
-*****
+
 <img width="603" height="597" alt="Image" src="https://github.com/user-attachments/assets/7d70082a-58a3-45f2-a330-d06066fe92ad" />
 
-*******
+
 
 <img width="689" height="528" alt="Image" src="https://github.com/user-attachments/assets/31adaa70-46ea-48e9-89d2-d3325f85f6a8" />
 
 
-**Scroll down and click on** ***"Launch istance"*** **and then click on** ***"View all instance".***
+- **Scroll down and click on** ***"Launch istance"*** **and then click on** ***"View all instance".***
 
 
 
