@@ -46,7 +46,7 @@ SSH (Port 22) restricted to trusted IP addresses
 
 Custom application port exposed for web access - Port 3000 (Custom TCP)
 
-## Steps to Launch an Instance 
+## Step1: Launch an EC2 Instance 
 
 - Login to AWS Console. Type ***EC2*** in the search bar. Click on ***EC2.***
 
@@ -96,6 +96,9 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 
 <img width="1353" height="223" alt="Image" src="https://github.com/user-attachments/assets/caf1ccc9-8462-4dd1-bfeb-6d24f0c09e8c" />
+
+
+## Step 2: Connect via SSH
 
 - Click on ***Instances*** on the left side. Select your ***Instance*** click  on ***Connect***
 
