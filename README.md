@@ -76,9 +76,10 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 - **Scroll down and click on** ***"Launch istance"*** **and then click on** ***"View all instance".***
 
+- **Select your instance, click on Security 
 
 
-<img width="860" height="666" alt="Image" src="https://github.com/user-attachments/assets/fda5a314-d15b-43ac-a025-bbce077577c5" />
+<img width="784" height="619" alt="Image" src="https://github.com/user-attachments/assets/7981a287-6fb2-4e1b-b2d7-f0757d749e6c" />
 
 
 <img width="891" height="466" alt="Image" src="https://github.com/user-attachments/assets/d8154a19-d72c-419c-ac12-9906a8e7061f" />
