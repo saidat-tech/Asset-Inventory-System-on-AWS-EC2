@@ -97,12 +97,14 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 <img width="1353" height="223" alt="Image" src="https://github.com/user-attachments/assets/caf1ccc9-8462-4dd1-bfeb-6d24f0c09e8c" />
 
-Click on Instances on the left side. Select the Instance 
+- Click on ***Instances*** on the left side. Select your ***Instance*** click  on ***Connect***
 
 
+<img width="1109" height="308" alt="Image" src="https://github.com/user-attachments/assets/847cf1fd-6915-4576-8031-808aaa349605" />
 
+- Click on ***SSH client*** and copy the ***SSH link***
 
-
+  <img width="688" height="531" alt="Image" src="https://github.com/user-attachments/assets/0d1c01bf-0796-42a0-93ce-41cef9a2c283" />
 
 ## Environment Preparation
 
