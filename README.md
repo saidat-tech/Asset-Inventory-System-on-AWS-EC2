@@ -102,9 +102,17 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 <img width="1109" height="308" alt="Image" src="https://github.com/user-attachments/assets/847cf1fd-6915-4576-8031-808aaa349605" />
 
-- Click on ***SSH client*** and copy the ***SSH link***
+- Click on ***SSH client*** and copy the ***SSH Command***
 
-  <img width="688" height="531" alt="Image" src="https://github.com/user-attachments/assets/0d1c01bf-0796-42a0-93ce-41cef9a2c283" />
+<img width="720" height="639" alt="Image" src="https://github.com/user-attachments/assets/a889feeb-0021-4fe6-b8ad-c0a3d1d5df97" />
+
+
+- Open your terminal, navigate to where you have your keypair stored.I have mine in the Downloads on my conputer. Hence:
+  - ***cd Downloads,*** then paste the ***SSH command.*** Type ***Yes*** when prompt
+
+
+<img width="987" height="217" alt="Image" src="https://github.com/user-attachments/assets/0c8fc2b4-678a-4b39-9df1-e92c7e8fdc2c" />
+
 
 ## Environment Preparation
 
