@@ -347,8 +347,17 @@ npm init -y
 
 <img width="609" height="391" alt="Image" src="https://github.com/user-attachments/assets/a4443f74-d0a4-43a2-a091-306505d011e4" />
 
-
-
+- Type in
+  ~~~
+  npm install express
+  ~~~
+  - Then
+  ~~~
+  node app.js
+  ~~~
+  -The result:
+  
+<img width="515" height="182" alt="Image" src="https://github.com/user-attachments/assets/5ae8584c-4dd0-4be0-a4db-0aafb384f31d" />
 
 
 
