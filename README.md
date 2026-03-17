@@ -117,7 +117,7 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 <img width="987" height="217" alt="Image" src="https://github.com/user-attachments/assets/0c8fc2b4-678a-4b39-9df1-e92c7e8fdc2c" />
 
 
-## Step 3: Install Node.js
+## Step 3: Prepar Environment: Install Node.js runtime
 
 - Update all installed packages by typing in
 
@@ -139,6 +139,8 @@ node -v
 ~~~
 npm -v
   ~~~
+
+## 2. Backend Engineering:
 
 - Create a file called app.js. Use the code
 
@@ -191,6 +193,9 @@ nano app.js
   ~~~
 
 - Exit with **ctrl +X, Y** and press the **Enter key.**
+
+
+## 3. Frontend Engineering:
 
 - Create a folder called public and create a file called index.html inside it.
   - create public
@@ -366,11 +371,31 @@ npm init -y
   
   <img width="892" height="419" alt="Image" src="https://github.com/user-attachments/assets/a65c1b2c-d4c5-487a-8982-3afb9ff56bf9" />
 
+## 4. Production Orchestration: using PM2
 
+To make sure that the app survives the **Real World**, I used **PM2**. This provide zero-downtime reloads and self-heals automaticly.
+- Create a file called deploy.sh
+- Paste in the script below to automate the setup on the EC2 instance.
+  
+~~~
+#!/bin/bash
+# Install PM2 Globally
+sudo npm install -g pm2
 
+# Install local dependencies
+npm install
 
+# Start the application as a background daemon
+pm2 start app.js --name "inventory-os"
 
+# Configure PM2 to start on system boot
+pm2 save
+pm2 startup | tail -n 1 | bash
 
+echo "✅ Deployment Successful"
+~~~ 
+
+## Reliability Engineering: Automated Backups
 
 
 
