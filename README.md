@@ -455,7 +455,14 @@ yum install cronie -y
 
 <img width="518" height="496" alt="Image" src="https://github.com/user-attachments/assets/8ebb2bf8-8c0d-4790-8b4b-a5f33e025c37" />
 
-- Enable and Start **Crond**. Then run **Crontab -e**
+- Enable and Start **Crond**. Then run
+  ~~~
+  Crontab -e
+  ~~~
+-And add the code below to schedule time for backups
+~~~
+0 0 * * * /bin/bash /home/ec2-user/backup.sh
+~~~
 
 <img width="417" height="77" alt="Image" src="https://github.com/user-attachments/assets/6965bd91-9fea-4685-bdd9-609dcb019fc7" />
 
