@@ -326,7 +326,23 @@ nano index.html
 
 ~~~
 
+ - move out of public
+  ~~~
+  cd ..
+  ~~~
+Type in the code below to create package.json
+~~~
+npm init -y
+~~~
+- Then type in the code below to download and install packages.
 
-
+  ~~~
+  npm install
+  ~~~
+  - Enter the code below to run the code in the file.
+    ~~~
+    node app.js
+    ~~~
+- **Note: Install **Express** before runing the above code because it will generate an error as the code in the app.js require Express to run.**
 
 
