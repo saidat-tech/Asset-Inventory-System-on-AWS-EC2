@@ -146,6 +146,11 @@ npm -v
 touch app.js
 ~~~
 
+- Open the file with
+
+~~~
+nano app.js
+~~~
 
 - Paste the code below in it.
   ~~~
@@ -185,8 +190,8 @@ touch app.js
 
   ~~~
 
-
-
+- Exit with **ctrl +X, Y** and press the **Enter key.**
+  
 
 
 
