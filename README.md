@@ -377,6 +377,8 @@ To make sure that the app survives the **Real World**, I used **PM2**. This prov
 - Create a file called deploy.sh
 - Paste in the script below to automate the setup on the EC2 instance.
   
+  <img width="331" height="29" alt="Image" src="https://github.com/user-attachments/assets/0deaa7c8-33b5-41ba-99fb-b96f1804577f" />
+  
 ~~~
 #!/bin/bash
 # Install PM2 Globally
@@ -394,11 +396,28 @@ pm2 startup | tail -n 1 | bash
 
 echo "✅ Deployment Successful"
 ~~~ 
+- Make the script executable by running the code:
+  
+~~~
+chmod +x deploy.sh
+~~~
+- Then,
+  
+~~~
+./deploy.sh
+~~~
+<img width="498" height="548" alt="Image" src="https://github.com/user-attachments/assets/3c4dd084-75a3-4fab-8610-0ac9ccff4719" />
+
+<img width="559" height="413" alt="Image" src="https://github.com/user-attachments/assets/66e7801d-f81c-483f-ab2a-cd50b0f06dd7" />
+
+<img width="398" height="242" alt="Image" src="https://github.com/user-attachments/assets/b3f5f832-4e13-42e8-8e3d-1ef597209beb" />
 
 ## Reliability Engineering: Automated Backups
 
 
-
+~~~
+chmod +x backup.sh
+~~~
 
 
 
