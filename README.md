@@ -191,8 +191,140 @@ nano app.js
   ~~~
 
 - Exit with **ctrl +X, Y** and press the **Enter key.**
-  
 
+- Create a folder called public and create a file called index.html inside it.
+  - create public
+~~~
+mkdir public
+~~~
+ - cd into public
+~~~
+cd public
+~~~
+  - create file index.html
+~~~
+touch index.html
+~~~
+  - Open index.html
+~~~
+nano index.html
+~~~
+  - Paste the code below.
+~~~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InventoryOS | Pro</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #c9d1d9; --primary: #58a6ff; --success: #238636; --danger: #f85149; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 2rem; }
+        .container { max-width: 850px; margin: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        .brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.1rem; }
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .search-input { background: #010409; border: 1px solid var(--border); color: white; padding: 6px 10px 6px 30px; border-radius: 6px; width: 140px; font-size: 0.8rem; transition: 0.3s; }
+        .search-input:focus { width: 190px; border-color: var(--primary); outline: none; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+        .input-group { display: flex; gap: 10px; }
+        input.field { background: #010409; border: 1px solid var(--border); color: white; padding: 8px; border-radius: 6px; flex: 1; font-size: 0.85rem; }
+        button { cursor: pointer; border-radius: 6px; border: none; font-weight: 600; display: flex; align-items: center; gap: 5px; padding: 8px 14px; font-size: 0.85rem; }
+        .btn-add { background: var(--success); color: white; }
+        .btn-export { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; color: #8b949e; font-size: 0.7rem; text-transform: uppercase; padding: 10px; border-bottom: 1px solid var(--border); }
+        td { padding: 12px 10px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+        const Icon = ({ name, size = 16 }) => {
+            useEffect(() => { lucide.createIcons(); }, [name]);
+            return <i data-lucide={name} style={{ width: size, height: size }}></i>;
+        };
+
+        function App() {
+            const [items, setItems] = useState([]);
+            const [search, setSearch] = useState('');
+            const [form, setForm] = useState({ name: '', qty: '', category: '' });
+            const [editingId, setEditingId] = useState(null);
+
+            useEffect(() => { fetch('/api/inventory').then(res => res.json()).then(setItems); }, []);
+
+            const filtered = useMemo(() => items.filter(i => i.name.toLowerCase().includes(search.toLowerCase())), [items, search]);
+
+            const exportData = () => {
+                const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'inventory_backup.json'; a.click();
+            };
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                await fetch(editingId ? `/api/inventory/${editingId}` : '/api/inventory', {
+                    method: editingId ? 'PUT' : 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(form)
+                });
+                setForm({ name: '', qty: '', category: '' }); setEditingId(null);
+                fetch('/api/inventory').then(res => res.json()).then(setItems);
+            };
+
+            return (
+                <div className="container">
+                    <header className="header">
+                        <div className="brand"><Icon name="server" /> InventoryOS</div>
+                        <div className="header-actions">
+                            <button className="btn-export" onClick={exportData}><Icon name="download" size={14}/>Backup</button>
+                            <div style={{position:'relative'}}>
+                                <span style={{position:'absolute', left:'10px', top:'8px', color:'#8b949e'}}><Icon name="search" size={14}/></span>
+                                <input className="search-input" placeholder="Filter..." onChange={e => setSearch(e.target.value)} />
+                            </div>
+                        </div>
+                    </header>
+                    <div className="card">
+                        <form className="input-group" onSubmit={handleSubmit}>
+                            <input className="field" placeholder="Item" value={form.name} onChange={e=>setForm({...form, name:e.target.value})} required />
+                            <input className="field" placeholder="Category" value={form.category} onChange={e=>setForm({...form, category:e.target.value})} required />
+                            <input className="field" type="number" placeholder="Qty" style={{maxWidth:'60px'}} value={form.qty} onChange={e=>setForm({...form, qty:e.target.value})} required />
+                            <button className="btn-add"><Icon name="plus"/> {editingId ? 'Save' : 'Add'}</button>
+                        </form>
+                    </div>
+                    <div className="card">
+                        <table>
+                            <thead><tr><th>Asset</th><th>Category</th><th>Qty</th><th style={{textAlign:'right'}}>Actions</th></tr></thead>
+                            <tbody>
+                                {filtered.map(i => (
+                                    <tr key={i.id}>
+                                        <td>{i.name}</td>
+                                        <td><span style={{color:'var(--primary)', fontSize:'0.75rem'}}>{i.category}</span></td>
+                                        <td>{i.qty}</td>
+                                        <td style={{textAlign:'right'}}>
+                                            <button style={{display:'inline', background:'none', color:'#8b949e'}} onClick={() => {setEditingId(i.id); setForm(i);}}><Icon name="edit" size={14}/></button>
+                                            <button style={{display:'inline', background:'none', color:'var(--danger)'}} onClick={async () => { await fetch(`/api/inventory/${i.id}`, {method:'DELETE'}); window.location.reload(); }}><Icon name="trash" size={14}/></button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            );
+        }
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
+
+~~~
 
 
 
