@@ -466,6 +466,8 @@ sudo yum install cronie -y
 
 <img width="417" height="77" alt="Image" src="https://github.com/user-attachments/assets/6965bd91-9fea-4685-bdd9-609dcb019fc7" />
 
+This app now runs 24/7 with automated backups.
+
 <img width="680" height="770" alt="Image" src="https://github.com/user-attachments/assets/1507093a-3492-4f1b-82f4-9504e35e37c8" />
 
 <img width="849" height="543" alt="Image" src="https://github.com/user-attachments/assets/6704f114-5bb5-433e-a0e8-1b6dc4de377a" />
