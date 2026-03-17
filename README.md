@@ -412,17 +412,56 @@ chmod +x deploy.sh
 
 <img width="398" height="242" alt="Image" src="https://github.com/user-attachments/assets/b3f5f832-4e13-42e8-8e3d-1ef597209beb" />
 
-## Reliability Engineering: Automated Backups
+- Check the status;
+  ~~~
+  pm2 status
+  ~~~
+  <img width="594" height="89" alt="Image" src="https://github.com/user-attachments/assets/de1d6a4f-d33f-4423-afc1-d4e289a6dfea" />
+- Stop pm2 from running:
+  ~~~
+  pm2 stop 0
+  ~~~
+  <img width="577" height="122" alt="Image" src="https://github.com/user-attachments/assets/4d83c8de-61b2-4551-afb5-4c38f9f6b513" />
+- When you fresh you browser, the inventoryOS connection will be cut off.
 
+ <img width="650" height="696" alt="Image" src="https://github.com/user-attachments/assets/13faea4b-be38-4475-960f-047c4b62cb87" /> 
+ - Start pm2 again, to have the inventoryOS back.
+   ~~~
+   pm2 start 0
+   ~~~
+   <img width="584" height="127" alt="Image" src="https://github.com/user-attachments/assets/a7859135-f456-4078-a0a4-991f01b90a67" />
+   
+## 4. Reliability Engineering with Automated Backups
+- Creat a file called backup.sh
+- Copy and Paste the code below:
+~~~
+#!/bin/bash
+BACKUP_DIR="/home/ec2-user/backups"
+mkdir -p $BACKUP_DIR
+# Pull data from the local API
+curl -s http://localhost:3000/api/inventory > "$BACKUP_DIR/inv_$(date +%F).json"
+# Retention Policy: Delete backups older than 7 days
+find $BACKUP_DIR -type f -mtime +7 -delete
 
+~~~
+- Exit and type in this code to make it executable
 ~~~
 chmod +x backup.sh
 ~~~
+- Install **crontab**.
+~~~
+yum install cronie -y
+~~~
 
+<img width="518" height="496" alt="Image" src="https://github.com/user-attachments/assets/8ebb2bf8-8c0d-4790-8b4b-a5f33e025c37" />
 
+- Enable and Start **Crond**. Then run **Crontab -e**
 
+<img width="417" height="77" alt="Image" src="https://github.com/user-attachments/assets/6965bd91-9fea-4685-bdd9-609dcb019fc7" />
 
+<img width="680" height="770" alt="Image" src="https://github.com/user-attachments/assets/1507093a-3492-4f1b-82f4-9504e35e37c8" />
 
+<img width="849" height="543" alt="Image" src="https://github.com/user-attachments/assets/6704f114-5bb5-433e-a0e8-1b6dc4de377a" />
 
 
 
