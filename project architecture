@@ -1,0 +1,13 @@
+User
+  │
+  ▼
+Browser
+  │
+  ▼
+Docker Container
+  │
+  ▼
+Node.js Runtime
+  │
+  ▼
+Express API + React Frontend
