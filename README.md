@@ -339,7 +339,7 @@ npm init -y
   ~~~
   npm install
   ~~~
-  - Enter the code below to run the code in the file.
+- Enter the code below to run the code in the file.
     ~~~
     node app.js
     ~~~
