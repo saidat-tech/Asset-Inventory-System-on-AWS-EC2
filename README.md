@@ -351,11 +351,11 @@ npm init -y
   ~~~
   npm install express
   ~~~
-  - Then
+- Then
   ~~~
   node app.js
   ~~~
-  -The result:
+-The result:
   
 <img width="515" height="182" alt="Image" src="https://github.com/user-attachments/assets/5ae8584c-4dd0-4be0-a4db-0aafb384f31d" />
 
