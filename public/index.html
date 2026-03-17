@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryOS | Asset Management</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --text-main: #f0f6fc;
+            --text-dim: #8b949e;
+            --primary: #58a6ff;
+            --success: #238636;
+            --danger: #f85149;
+            --border: #30363d;
+        }
+
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0; padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container { max-width: 850px; margin: auto; }
+        
+        /* Header & Compact Search */
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand h1 { font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: -0.025em; }
+
+        .search-container { position: relative; display: flex; align-items: center; }
+        .search-icon { position: absolute; left: 8px; color: var(--text-dim); pointer-events: none; }
+        
+        .search-input {
+            background: #010409;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 6px 10px 6px 30px;
+            border-radius: 6px;
+            width: 130px; /* Small footprint as requested */
+            font-size: 0.8rem;
+            transition: width 0.3s ease, border-color 0.2s;
+        }
+        .search-input:focus { width: 180px; border-color: var(--primary); outline: none; }
+
+        /* Dashboard Cards */
+        .card { 
+            background: var(--card); 
+            padding: 1.25rem; 
+            border-radius: 8px; 
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .input-group { display: flex; gap: 0.75rem; }
+        
+        .form-control {
+            background: #010409;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            flex: 1;
+            font-size: 0.85rem;
+        }
+
+        button {
+            display: flex; align-items: center; gap: 6px;
+            padding: 8px 16px; border-radius: 6px;
+            border: none; cursor: pointer; font-weight: 600; font-size: 0.85rem;
+            transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+
+        .btn-primary { background: var(--success); color: white; }
+        .btn-icon { background: transparent; color: var(--text-dim); padding: 5px; }
+        .btn-icon:hover { color: var(--primary); }
+        .btn-delete:hover { color: var(--danger); }
+
+        /* Asset Table */
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 12px 8px; color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+        td { padding: 12px 8px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        
+        .badge {
+            padding: 2px 8px; border-radius: 12px; font-size: 0.7rem;
+            background: rgba(88, 166, 255, 0.1); color: var(--primary);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+
+        // Custom Component to trigger Lucide Icons after React renders
+        const Icon = ({ name, size = 16, className = "" }) => {
+            useEffect(() => { lucide.createIcons(); }, [name]);
+            return <i data-lucide={name} style={{ width: size, height: size }} className={className}></i>;
+        };
+
+        function App() {
+            const [items, setItems] = useState([]);
+            const [search, setSearch] = useState('');
+            const [form, setForm] = useState({ name: '', qty: '', category: '' });
+            const [editingId, setEditingId] = useState(null);
+
+            useEffect(() => { fetchItems(); }, []);
+
+            const fetchItems = async () => {
+                const res = await fetch('/api/inventory');
+                const data = await res.json();
+                setItems(data);
+            };
+
+            const filteredItems = useMemo(() => {
+                return items.filter(item => 
+                    item.name.toLowerCase().includes(search.toLowerCase()) ||
+                    item.category.toLowerCase().includes(search.toLowerCase())
+                );
+            }, [items, search]);
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                const method = editingId ? 'PUT' : 'POST';
+                const url = editingId ? `/api/inventory/${editingId}` : '/api/inventory';
+
+                await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...form, qty: parseInt(form.qty) })
+                });
+                
+                setForm({ name: '', qty: '', category: '' });
+                setEditingId(null);
+                fetchItems();
+            };
+
+            const deleteItem = async (id) => {
+                if (confirm('Permanently remove this asset?')) {
+                    await fetch(`/api/inventory/${id}`, { method: 'DELETE' });
+                    fetchItems();
+                }
+            };
+
+            return (
+                <div className="container">
+                    <header className="header">
+                        <div className="brand">
+                            <Icon name="layout" size={20} className="text-primary" />
+                            <h1>Inventory<span style={{color: 'var(--primary)', fontWeight: '400'}}>OS</span></h1>
+                        </div>
+                        <div className="search-container">
+                            <Icon name="search" size={14} className="search-icon" />
+                            <input 
+                                className="search-input"
+                                placeholder="Filter assets..." 
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </div>
+                    </header>
+
+                    <div className="card">
+                        <form className="input-group" onSubmit={handleSubmit}>
+                            <input className="form-control" placeholder="Asset Name" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required />
+                            <input className="form-control" placeholder="Category" value={form.category} onChange={e => setForm({...form, category: e.target.value})} required />
+                            <input className="form-control" type="number" placeholder="Qty" style={{maxWidth: '60px'}} value={form.qty} onChange={e => setForm({...form, qty: e.target.value})} required />
+                            <button type="submit" className="btn-primary">
+                                <Icon name={editingId ? "check" : "plus"} size={16} />
+                                {editingId ? 'Update' : 'Add'}
+                            </button>
+                        </form>
+                    </div>
+
+                    <div className="card" style={{padding: '0 1rem'}}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset</th>
+                                    <th>Category</th>
+                                    <th>Stock</th>
+                                    <th style={{textAlign: 'right'}}>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredItems.map(item => (
+                                    <tr key={item.id}>
+                                        <td style={{fontWeight: '500'}}>{item.name}</td>
+                                        <td><span className="badge">{item.category}</span></td>
+                                        <td style={{color: item.qty < 5 ? 'var(--danger)' : 'inherit'}}>
+                                            {item.qty}
+                                        </td>
+                                        <td style={{textAlign: 'right', display: 'flex', justifyContent: 'flex-end', gap: '8px', paddingTop: '10px'}}>
+                                            <button title="Edit" className="btn-icon" onClick={() => {
+                                                setEditingId(item.id);
+                                                setForm({ name: item.name, qty: item.qty, category: item.category });
+                                            }}>
+                                                <Icon name="edit-3" size={14} />
+                                            </button>
+                                            <button title="Delete" className="btn-icon btn-delete" onClick={() => deleteItem(item.id)}>
+                                                <Icon name="trash-2" size={14} />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
