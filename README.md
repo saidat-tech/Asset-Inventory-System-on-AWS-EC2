@@ -116,12 +116,8 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 <img width="987" height="217" alt="Image" src="https://github.com/user-attachments/assets/0c8fc2b4-678a-4b39-9df1-e92c7e8fdc2c" />
 
+Type in 
 
-## Environment Preparation
-
-
-Connect via SSH and install the Node.js runtime from below website, ensure to select linux as shown below https://nodejs.org/en/download
-The environment is prepared by installing the Node.js runtime, enabling the system to execute the backend application and serve frontend assets.
 
 
 
