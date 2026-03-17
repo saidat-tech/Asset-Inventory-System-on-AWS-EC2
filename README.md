@@ -116,7 +116,14 @@ Custom application port exposed for web access - Port 3000 (Custom TCP)
 
 <img width="987" height="217" alt="Image" src="https://github.com/user-attachments/assets/0c8fc2b4-678a-4b39-9df1-e92c7e8fdc2c" />
 
-Type in 
+
+## Step 3: Install Node.js
+
+- Update all installed packages by typing in
+
+~~~
+  Sudo yum update -y
+  ~~~
 
 
 
