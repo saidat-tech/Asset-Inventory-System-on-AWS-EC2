@@ -431,7 +431,7 @@ chmod +x deploy.sh
    ~~~
    <img width="584" height="127" alt="Image" src="https://github.com/user-attachments/assets/a7859135-f456-4078-a0a4-991f01b90a67" />
    
-## 4. Reliability Engineering with Automated Backups
+## 5. Reliability Engineering with Automated Backups
 - Creat a file called backup.sh
 - Copy and Paste the code below:
 ~~~
@@ -463,7 +463,8 @@ yum install cronie -y
 
 <img width="849" height="543" alt="Image" src="https://github.com/user-attachments/assets/6704f114-5bb5-433e-a0e8-1b6dc4de377a" />
 
-
+## 6 Conclusion
+This deployment on AWS EC2 with PM2 and Automation Backups, demonstrate my understanding of the Reliability Pillar of the AWS Well-Architectured Framework.
 
 
 
