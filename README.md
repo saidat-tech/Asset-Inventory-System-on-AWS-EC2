@@ -450,7 +450,7 @@ chmod +x backup.sh
 ~~~
 - Install **crontab**.
 ~~~
-yum install cronie -y
+sudo yum install cronie -y
 ~~~
 
 <img width="518" height="496" alt="Image" src="https://github.com/user-attachments/assets/8ebb2bf8-8c0d-4790-8b4b-a5f33e025c37" />
