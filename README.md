@@ -359,8 +359,10 @@ npm init -y
   
 <img width="515" height="182" alt="Image" src="https://github.com/user-attachments/assets/5ae8584c-4dd0-4be0-a4db-0aafb384f31d" />
 
+- Copy your instance Public IP address and paste on the browser. Follow the format ***Public IP address:used-port***
+  eg: **18.234.84.228:3000**
 
-
+  <img width="892" height="419" alt="Image" src="https://github.com/user-attachments/assets/a65c1b2c-d4c5-487a-8982-3afb9ff56bf9" />
 
 
 
