@@ -470,7 +470,7 @@ sudo yum install cronie -y
 - Then run
   
   ~~~
-  Crontab -e
+  crontab -e
   ~~~
   
 -And add the code below to schedule time for backups
