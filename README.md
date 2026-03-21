@@ -382,7 +382,7 @@ To make sure that the app survives the **Real World**, I used **PM2**. This prov
 ~~~
 #!/bin/bash
 # Install PM2 Globally
-sudo npm install -g pm2
+npm install -g pm2
 
 # Install local dependencies
 npm install
