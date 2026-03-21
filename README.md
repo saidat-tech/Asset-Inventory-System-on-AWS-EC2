@@ -479,7 +479,7 @@ sudo yum install cronie -y
 0 0 * * * /bin/bash /home/ec2-user/backup.sh
 ~~~
 
-
+- Exit with ctrl +X, Y and press the Enter key.
 
 This app now runs 24/7 with automated backups.
 
