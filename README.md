@@ -457,6 +457,14 @@ sudo yum install cronie -y
 
 - Enable and Start **Crond**.
   
+  ~~~
+  sudo systemctl enable crond
+  ~~~
+  
+  ~~~
+  sudo systemctl start crond
+  ~~~
+  
   <img width="417" height="77" alt="Image" src="https://github.com/user-attachments/assets/6965bd91-9fea-4685-bdd9-609dcb019fc7" />
   
 - Then run
