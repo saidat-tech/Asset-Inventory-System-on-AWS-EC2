@@ -1,0 +1,12 @@
+asset-inventory-system/
+│
+├── app.js                # Express.js backend server
+├── deploy.sh             # Automated deployment script
+├── backup.sh             # Backup automation script
+│
+├── public/
+│   └── index.html        # React frontend SPA
+│
+├── backups/              # Generated inventory backups
+│
+└── README.md             # Project documentation
