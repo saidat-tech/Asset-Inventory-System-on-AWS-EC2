@@ -490,5 +490,13 @@ This app now runs 24/7 with automated backups.
 ## 6 Conclusion
 This deployment on AWS EC2 with PM2 and Automation Backups, demonstrate my understanding of the Reliability Pillar of the AWS Well-Architectured Framework.
 
+## Key Takeaways
 
+This project demonstrates the ability to:
+
+- Deploy and operate cloud-based applications on AWS
+- Implement DevOps reliability practices
+- Manage application processes in production environments
+- Automate operational tasks using Linux scheduling tools
+- Maintain system uptime through process management and monitoring
 
