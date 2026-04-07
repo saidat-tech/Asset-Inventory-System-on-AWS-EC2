@@ -1,0 +1,20 @@
+        User
+         │
+         ▼
+      Internet
+         │
+         ▼
+     AWS EC2 Instance
+         │
+ ┌─────────────────────────┐
+ │       Node.js Runtime   │
+ │                         │
+ │  Express.js REST API    │
+ │        │                │
+ │        ▼                │
+ │    React Frontend       │
+ │                         │
+ │  PM2 Process Manager    │
+ │                         │
+ │  Cron Backup Scheduler  │
+ └─────────────────────────┘
