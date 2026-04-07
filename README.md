@@ -490,6 +490,23 @@ This app now runs 24/7 with automated backups.
 ## 6 Conclusion
 This deployment on AWS EC2 with PM2 and Automation Backups, demonstrate my understanding of the Reliability Pillar of the AWS Well-Architectured Framework.
 
+## AWS Well-Architected Considerations
+
+This project incorporates several principles from the AWS Well-Architected Framework.
+
+- Reliability
+Application uptime maintained using PM2 process manager
+Automated backup strategy using Cron jobs
+- Operational Excellence
+Deployment scripts automate environment setup
+Logging and monitoring available through PM2 tools
+- Security
+SSH access restricted to trusted IP addresses
+Controlled access through EC2 security groups
+- Performance Efficiency
+Lightweight Node.js runtime for efficient execution
+Single-instance deployment optimized for small workloads
+
 ## Key Takeaways
 
 This project demonstrates the ability to:
@@ -500,3 +517,13 @@ This project demonstrates the ability to:
 - Automate operational tasks using Linux scheduling tools
 - Maintain system uptime through process management and monitoring
 
+## Future Improvements
+
+Potential enhancements for this system include:
+
+- Containerizing the application using Docker
+- Implementing CI/CD pipelines with GitHub Actions or Jenkins
+- Migrating the architecture to microservices
+- Deploying behind an AWS Application Load Balancer
+- Storing inventory data in Amazon RDS or DynamoDB
+- Adding centralized logging using CloudWatch
