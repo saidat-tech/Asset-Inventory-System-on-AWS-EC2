@@ -1,3 +1,8 @@
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
+![DevOps](https://img.shields.io/badge/DevOps-Project-red)
+
 # Asset-Inventory-System-on-AWS-EC2
 # Executive Summary
 This project demonstrates the deployment and operational management of a cloud-hosted asset inventory system on AWS EC2. It showcases the full lifecycle of building, deploying, and maintaining a production-style application using modern cloud and DevOps practices.
